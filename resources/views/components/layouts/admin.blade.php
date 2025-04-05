@@ -39,16 +39,22 @@
             <nav>
                 <ul class="space-y-2">
                     <li class="mb-4">
-                        <a href="{{ route('admin.dashboard') }}" wire:navigate class="block py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
-                            <i class="fas fa-home mr-2"></i>
+                        <a href="{{ route('admin.dashboard') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-gauge mr-2"></i>
                             <span class="sidebar-text">Dashboard</span>
                         </a>
                         <hr class="border-gray-50 mb-2 opacity-50">
                     </li>
                     <li class="mb-4">
-                        <a href="{{ route('admin.siswas.index') }}" wire:navigate class="block py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
-                            <i class="fas fa-home mr-2"></i>
+                        <a href="{{ route('admin.siswas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-users mr-2"></i>
                             <span class="sidebar-text">Siswa</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="{{ route('admin.kelas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-home mr-2"></i>
+                            <span class="sidebar-text">Kelas</span>
                         </a>
                     </li>
                 </ul>
@@ -65,18 +71,23 @@
             <nav>
                 <ul class="space-y-2">
                     <li class="mb-4">
-                        <a href="{{ route('admin.dashboard') }}" wire:navigate class="block py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('admin.dashboard') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-home mr-2"></i>
                             <span class="sidebar-text">Dashboard</span>
                         </a>
                         <hr class="border-gray-50 mb-2 opacity-50">
                     </li>
                     <li class="mb-4">
-                        <a href="{{ route('admin.siswas.index') }}" wire:navigate class="block py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
-                            <i class="fas fa-home mr-2"></i>
+                        <a href="{{ route('admin.siswas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-users mr-2"></i>
                             <span class="sidebar-text">Siswa</span>
                         </a>
-                        <hr class="border-gray-50 mb-2 opacity-50">
+                    </li>
+                    <li class="mb-4">
+                        <a href="{{ route('admin.kelas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-home mr-2"></i>
+                            <span class="sidebar-text">Kelas</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -86,7 +97,7 @@
         <!-- Main Content -->
         <div class="flex-1 flex flex-col">
             <!-- Header -->
-            <header class="hidden md:flex bg-white p-4 flex justify-between items-center shadow-md">
+            <header class="hidden md:flex bg-white p-4 justify-between items-center shadow-md">
                 <button onclick="toggleSidebarCollapsed()" class="p-2 shadow w-12 bg-blue-400 hover:bg-blue-500 rounded-md cursor-pointer"><i class="fas fa-bars text-white"></i></button>
                 <div class="flex items-center space-x-4">
                     <form action="{{ route('logout') }}" method="POST">

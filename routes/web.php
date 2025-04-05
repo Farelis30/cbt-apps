@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\SiswaProfileController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\Admin\KelasController;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Guru\Dashboard as GuruDashboard;
 use App\Livewire\Login;
@@ -28,7 +29,11 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/admin/siswas', [SiswaProfileController::class, 'index'])->name('admin.siswas.index');
         Route::get('/admin/siswas/create', [SiswaProfileController::class, 'create'])->name('admin.siswas.create');
-        Route::get('/admin/siswas/{$id}/edit', [SiswaProfileController::class, 'edit'])->name('admin.siswas.edit');
+        Route::get('/admin/siswas/{id}/edit', [SiswaProfileController::class, 'edit'])->name('admin.siswas.edit');
+
+        Route::get('/admin/kelas', [KelasController::class, 'index'])->name('admin.kelas.index');
+        Route::get('/admin/kelas/create', [KelasController::class, 'create'])->name('admin.kelas.create');
+        Route::get('/admin/kelas/{id}/edit', [KelasController::class, 'edit'])->name('admin.kelas.edit');
 
     });
 
