@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\SiswaProfile;
 
 class Kelas extends Model
 {
@@ -14,4 +15,9 @@ class Kelas extends Model
     protected $fillable = [
         'kelas',
     ];
+
+    public function siswaProfile()
+    {
+        return $this->hasMany(SiswaProfile::class);
+    }
 }

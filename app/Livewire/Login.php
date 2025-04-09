@@ -26,8 +26,9 @@ class Login extends Component
         ];
 
         if (Auth::attempt($credentials, $this->remember)) {
-            $user = Auth::user();
+            session()->flash('welcome_message', true);
 
+            $user = Auth::user();
             return match($user->role) {
                 'admin' => redirect()->route('admin.dashboard'),
                 'guru' => redirect()->route('guru.dashboard'),

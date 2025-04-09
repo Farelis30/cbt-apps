@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Livewire\Admin\Siswa;
+namespace App\Livewire\Admin\Guru;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\SiswaProfile;
+use App\Models\GuruProfile;
 use App\Models\User;
 
-class SiswaList extends Component
+class GuruList extends Component
 {
     use WithPagination;
 
@@ -21,17 +21,17 @@ class SiswaList extends Component
 
     public function delete($id)
     {
-        // Temukan profil siswa berdasarkan ID
-        $siswaProfile = SiswaProfile::findOrFail($id);
+        // Temukan profil guru berdasarkan ID
+        $guruProfile = GuruProfile::findOrFail($id);
 
-        // Hapus user yang terkait dengan profil siswa
-        $user = $siswaProfile->user; // Ambil user yang terkait dengan siswa
+        // Hapus guru yang terkait dengan profil siswa
+        $user = $guruProfile->user; // Ambil user yang terkait dengan guru
 
         // Mulai transaksi agar penghapusan dilakukan bersamaan
         \DB::beginTransaction();
         try {
-            // Hapus profil siswa
-            $siswaProfile->delete();
+            // Hapus profil guru
+            $guruProfile->delete();
 
             // Hapus user yang terkait
             if ($user) {
@@ -42,7 +42,7 @@ class SiswaList extends Component
             \DB::commit();
 
             // Tampilkan pesan sukses
-            session()->flash('message', 'Siswa dan akun pengguna berhasil dihapus.');
+            session()->flash('message', 'Guru dan akun pengguna berhasil dihapus.');
         } catch (\Exception $e) {
             // Rollback transaksi jika ada kesalahan
             \DB::rollBack();
@@ -54,17 +54,15 @@ class SiswaList extends Component
 
     public function render()
     {
-        $query = SiswaProfile::where(function($query) {
-            $query->where('nisn', 'like', '%' . $this->search . '%')
-                ->orWhere('nama_lengkap', 'like', '%' . $this->search . '%');
+        $query = GuruProfile::where(function($query) {
+            $query->where('nama_lengkap', 'like', '%' . $this->search . '%');
         });
 
         // Eager load 'user' dan 'kelas' untuk menghindari N+1 problem
-        $siswa = $query->with(['user', 'kelas'])->paginate(10);
+        $guru = $query->with(['user', 'kelas'])->paginate(10);
 
-        return view('livewire.admin.siswa.siswa-list', [
-            'siswas' => $siswa
+        return view('livewire.admin.guru.guru-list', [
+            'gurus' => $guru
         ]);
     }
-
 }

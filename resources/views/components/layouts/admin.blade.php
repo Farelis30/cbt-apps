@@ -10,9 +10,12 @@
         function toggleSidebarCollapsed() {
             const sidebarCollapsed = document.getElementById('sidebar-collapsed');
             const sidebarTextElements = document.querySelectorAll('.sidebar-text');
+            const sidebarLogo = document.getElementById('sidebar-logo');
 
             sidebarCollapsed.classList.toggle('w-20');
             sidebarCollapsed.classList.toggle('w-64');
+
+            sidebarLogo.classList.toggle('hidden');
 
             sidebarTextElements.forEach(text => {
                 text.classList.toggle('hidden');
@@ -34,28 +37,65 @@
 <body class="bg-gray-50">
     <div class="flex min-h-screen">
         <aside id="sidebar-collapsed" class="hidden md:block w-64 bg-gradient-to-r from-blue-600 to-blue-500 shadow-md p-5 transition-all duration-300">
-            <h2 class="text-2xl font-semibold text-white mb-5 text-center sidebar-text uppercase">Exam Apps</h2>
+            <div class="mb-3 flex items-center justify-center">
+                <img src="{{ asset('logo.png') }}" id="sidebar-logo" class="w-20 h-20 bg-white rounded-full" alt="">
+            </div>
             <hr class="border-gray-50 mb-2 opacity-50">
             <nav>
                 <ul class="space-y-2">
                     <li class="mb-4">
-                        <a href="{{ route('admin.dashboard') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('admin.dashboard') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-gauge mr-2"></i>
                             <span class="sidebar-text">Dashboard</span>
                         </a>
                         <hr class="border-gray-50 mb-2 opacity-50">
                     </li>
+                    <li class="mb-2 p-1">
+                        <h2 class="text-sm font-bold text-white uppercase sidebar-text">Master Data</h2>
+                    </li>
                     <li class="mb-4">
-                        <a href="{{ route('admin.siswas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('admin.siswa.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-users mr-2"></i>
                             <span class="sidebar-text">Siswa</span>
                         </a>
                     </li>
                     <li class="mb-4">
-                        <a href="{{ route('admin.kelas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('admin.guru.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-user-tie mr-2"></i>
+                            <span class="sidebar-text">Guru</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="{{ route('admin.kelas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-home mr-2"></i>
                             <span class="sidebar-text">Kelas</span>
                         </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="{{ route('admin.mapel.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-book mr-2"></i>
+                            <span class="sidebar-text">Mata Pelajaran</span>
+                        </a>
+                    </li>
+                    <li class="mb-2 p-1">
+                        <h2 class="text-sm font-bold text-white uppercase sidebar-text">Admin Menu</h2>
+                    </li>
+                    <li class="mb-4">
+                        <a href="{{ route('admin.setting.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-gear mr-2"></i>
+                            <span class="sidebar-text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <form action="{{ route('logout') }}" method="POST" class="cursor-pointer py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            @csrf
+                            <button type="submit" class="cursor-pointer w-full text-left flex items-center">
+                                <i class="fas fa-sign-out-alt mr-2"></i>
+                                <span class="sidebar-text">
+                                    Logout
+                                </span>
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </nav>
@@ -70,24 +110,59 @@
             <hr class="border-gray-50 mb-2 opacity-50">
             <nav>
                 <ul class="space-y-2">
+                    <!-- Dashboard Link -->
                     <li class="mb-4">
-                        <a href="{{ route('admin.dashboard') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('admin.dashboard') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-home mr-2"></i>
                             <span class="sidebar-text">Dashboard</span>
                         </a>
                         <hr class="border-gray-50 mb-2 opacity-50">
                     </li>
+                    <!-- Master Data Heading -->
+                    <li class="mb-2 p-1">
+                        <h2 class="text-sm font-bold text-white uppercase">Master Data</h2>
+                    </li>
+                    <!-- Siswa Link -->
                     <li class="mb-4">
-                        <a href="{{ route('admin.siswas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('admin.siswa.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-users mr-2"></i>
                             <span class="sidebar-text">Siswa</span>
                         </a>
                     </li>
+                    <!-- Guru Link -->
                     <li class="mb-4">
-                        <a href="{{ route('admin.kelas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('admin.guru.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-user-tie mr-2"></i>
+                            <span class="sidebar-text">Guru</span>
+                        </a>
+                    </li>
+                    <!-- Kelas Link -->
+                    <li class="mb-4">
+                        <a href="{{ route('admin.kelas.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-home mr-2"></i>
                             <span class="sidebar-text">Kelas</span>
                         </a>
+                    </li>
+                    <!-- Mata Pelajaran Link -->
+                    <li class="mb-4">
+                        <a href="{{ route('admin.mapel.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-book mr-2"></i>
+                            <span class="sidebar-text">Mata Pelajaran</span>
+                        </a>
+                    </li>
+                    <!-- Admin Menu Heading -->
+                    <li class="mb-2 p-1">
+                        <h2 class="text-sm font-bold text-white uppercase">Admin Menu</h2>
+                    </li>
+                    <!-- Logout Link -->
+                    <li class="mb-4">
+                        <form action="{{ route('logout') }}" method="POST" class="cursor-pointer py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            @csrf
+                            <button type="submit" class="cursor-pointer w-full text-left flex items-center">
+                                <i class="fas fa-sign-out-alt mr-2"></i>
+                                <span class="sidebar-text">Logout</span>
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </nav>
@@ -98,7 +173,10 @@
         <div class="flex-1 flex flex-col">
             <!-- Header -->
             <header class="hidden md:flex bg-white p-4 justify-between items-center shadow-md">
-                <button onclick="toggleSidebarCollapsed()" class="p-2 shadow w-12 bg-blue-400 hover:bg-blue-500 rounded-md cursor-pointer"><i class="fas fa-bars text-white"></i></button>
+                <div class="flex items-center gap-5">
+                    <button onclick="toggleSidebarCollapsed()" class="p-2 shadow w-12 bg-blue-400 hover:bg-blue-500 rounded-md cursor-pointer"><i class="fas fa-bars text-white"></i></button>
+                    <h2 class="text-md font-semibold text-blue-600 text-center sidebar-text">{{ Auth::user()->username }}</h2>
+                </div>
                 <div class="flex items-center space-x-4">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf

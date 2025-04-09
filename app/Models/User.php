@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\SiswaProfile;
+use App\Models\AdminProfile;
 
 class User extends Authenticatable
 {
@@ -18,7 +20,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
     ];
@@ -49,5 +51,10 @@ class User extends Authenticatable
     public function siswaProfile()
     {
         return $this->hasOne(SiswaProfile::class);
+    }
+
+    public function adminProfile()
+    {
+        return $this->hasOne(AdminProfile::class);
     }
 }

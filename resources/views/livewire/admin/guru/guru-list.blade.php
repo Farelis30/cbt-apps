@@ -7,13 +7,13 @@
                         No
                     </th>
                     <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        ID Siswa
-                    </th>
-                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         Nama Lengkap
                     </th>
                     <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         Kelas
+                    </th>
+                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Mata Pelajaran
                     </th>
                     <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         username
@@ -24,36 +24,36 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($siswas as $siswa)
+                @forelse ($gurus as $guru)
                     <tr>
                         <td class="py-2 px-4 border-b border-gray-200">
                             {{ $loop->iteration }}
                         </td>
                         <td class="py-2 px-4 border-b border-gray-200">
-                            {{ $siswa->nisn }}
+                            {{ $guru->nama_lengkap }}
                         </td>
                         <td class="py-2 px-4 border-b border-gray-200">
-                            {{ $siswa->nama_lengkap }}
+                            {{ $guru->kelas->kelas }}
                         </td>
                         <td class="py-2 px-4 border-b border-gray-200">
-                            {{ $siswa->kelas->kelas }}
+                            {{ $guru->mata_pelajaran->nama_mapel }}
                         </td>
                         <td class="py-2 px-4 border-b border-gray-200">
-                            {{ $siswa->user->username }}
+                            {{ $guru->user->username }}
                         </td>
                         <td class="py-2 px-4 border-b border-gray-200">
                             <div class="flex space-x-2">
-                                <a href="{{ route('admin.kelas.edit', $siswa->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs cursor-pointer">
+                                <a href="{{ route('admin.kelas.edit', $guru->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs cursor-pointer">
                                     Edit
                                 </a>
-                                <button onclick="confirmDelete({{ $siswa->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs cursor-pointer">Hapus</button>
+                                <button onclick="confirmDelete({{ $guru->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs cursor-pointer">Hapus</button>
                             </div>
                         </td>
                     </tr>
                 @empty
                     <tr>
                         <td colspan="6" class="py-3 px-4 text-center text-gray-500">
-                            Siswa belum ada, silahkan tambah siswa.
+                            Guru belum ada, silahkan tambah guru.
                         </td>
                     </tr>
                 @endforelse
@@ -61,13 +61,13 @@
         </table>
     </div>
 
-    {{ $siswas->links() }}
+    {{ $gurus->links() }}
 </div>
 
 <script>
-    function confirmDelete(siswaId) {
+    function confirmDelete(guruId) {
         Swal.fire({
-            title: 'Anda yakin ingin menghapus siswa ini?',
+            title: 'Anda yakin ingin menghapus guru ini?',
             text: "Data yang dihapus tidak dapat dikembalikan!",
             icon: 'warning',
             showCancelButton: true,
@@ -77,7 +77,7 @@
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
-                @this.call('delete', siswaId);
+                @this.call('delete', guruId);
                 Swal.fire(
                     'Terhapus!',
                     'Siswa telah dihapus.',

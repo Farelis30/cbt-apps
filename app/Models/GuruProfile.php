@@ -2,22 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Kelas;
 
-class SiswaProfile extends Model
+class GuruProfile extends Model
 {
-    use HasFactory;
-
-    protected $table = 'siswa_profiles';
+    protected $table = 'guru_profiles';
 
     protected $fillable = [
         'user_id',
-        'nisn',
         'nama_lengkap',
+        'image',
         'kelas_id',
+        'mata_pelajaran_id',
     ];
 
     public function user()
@@ -28,5 +25,10 @@ class SiswaProfile extends Model
     public function kelas()
     {
         return $this->belongsTo(Kelas::class);
+    }
+
+    public function mata_pelajaran()
+    {
+        return $this->belongsTo(MataPelajaran::class);
     }
 }
