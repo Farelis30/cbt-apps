@@ -77,6 +77,12 @@
                             <span class="sidebar-text">Mata Pelajaran</span>
                         </a>
                     </li>
+                    <li class="mb-4">
+                        <a href="{{ route('admin.ujian.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-pen mr-2"></i>
+                            <span class="sidebar-text">Ujian</span>
+                        </a>
+                    </li>
                     <li class="mb-2 p-1">
                         <h2 class="text-sm font-bold text-white uppercase sidebar-text">Admin Menu</h2>
                     </li>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\MapelController;
 use App\Http\Controllers\Admin\SettingProfileController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\Admin\KelasController;
+use App\Http\Controllers\UjianController;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Guru\Dashboard as GuruDashboard;
 use App\Livewire\Login;
@@ -45,6 +46,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/mapel', [MapelController::class, 'index'])->name('admin.mapel.index');
         Route::get('/admin/mapel/create', [MapelController::class, 'create'])->name('admin.mapel.create');
         Route::get('/admin/mapel/{id}/edit', [MapelController::class, 'edit'])->name('admin.mapel.edit');
+
+        Route::get('/admin/ujian', [UjianController::class, 'index'])->name('admin.ujian.index');
+        Route::get('/admin/ujian/create', [UjianController::class, 'create'])->name('admin.ujian.create');
+        Route::get('/admin/ujian/{id}/edit', [UjianController::class, 'edit'])->name('admin.ujian.edit');
+
+        Route::get('/admin/ujian/{id}/soal/', [UjianController::class, 'soal'])->name('admin.ujian.soal');
+        Route::get('/admin/ujian/{id}/soal/create', [UjianController::class, 'createSoal'])->name('admin.ujian.soal.create');
+        Route::get('/admin/ujian/{ujianId}/soal/{soalId}/edit', [UjianController::class, 'editSoal'])->name('admin.ujian.soal.edit');
 
         Route::get('/admin/setting', [SettingProfileController::class, 'index'])->name('admin.setting.index');
     });

@@ -12,10 +12,8 @@ class Ujian extends Model
 {
     use HasFactory;
 
-    // Menentukan nama tabel (opsional jika nama tabel sesuai konvensi)
     protected $table = 'ujians';
 
-    // Menentukan kolom yang dapat diisi (mass assignment)
     protected $fillable = [
         'nama_ujian',
         'guru_id',
@@ -27,12 +25,17 @@ class Ujian extends Model
         'duration',
     ];
 
+    protected $casts = [
+        'waktu_mulai' => 'datetime',
+        'waktu_selesai' => 'datetime',
+    ];
+
     /**
      * Relasi dengan model Guru.
      */
     public function guru()
     {
-        return $this->belongsTo(Guru::class, 'guru_id');
+        return $this->belongsTo(GuruProfile::class, 'guru_id');
     }
 
     /**
@@ -49,5 +52,15 @@ class Ujian extends Model
     public function mataPelajaran()
     {
         return $this->belongsTo(MataPelajaran::class, 'mata_pelajaran_id');
+    }
+
+    public function soal()
+    {
+        return $this->hasMany(Soal::class);
+    }
+
+    public function nilai()
+    {
+        return $this->hasMany(Nilai::class);
     }
 }
