@@ -43,7 +43,7 @@
                         </td>
                         <td class="py-2 px-4 border-b border-gray-200">
                             <div class="flex space-x-2">
-                                <a href="{{ route('admin.kelas.edit', $guru->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs cursor-pointer">
+                                <a href="{{ route('admin.guru.edit', $guru->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs cursor-pointer">
                                     Edit
                                 </a>
                                 <button onclick="confirmDelete({{ $guru->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs cursor-pointer">Hapus</button>

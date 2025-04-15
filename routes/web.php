@@ -22,11 +22,14 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [SiswaController::class, 'index'])->name('siswa.home');
-    Route::get('/jadwal', [SiswaController::class, 'jadwal'])->name('siswa.jadwal');
-    Route::get('/detail-ujian', [SiswaController::class, 'detailUjian'])->name('siswa.detail-ujian');
-    Route::get('/ujian', [SiswaController::class, 'ujian'])->name('siswa.ujian');
-    Route::get('/ujian-selesai', [SiswaController::class, 'ujianSelesai'])->name('siswa.ujian-selesai');
+    Route::middleware('siswa')->group(function () {
+        Route::get('/home', [SiswaController::class, 'index'])->name('siswa.home');
+        Route::get('/jadwal', [SiswaController::class, 'jadwal'])->name('siswa.jadwal');
+        Route::get('/detail-ujian', [SiswaController::class, 'detailUjian'])->name('siswa.detail-ujian');
+        Route::get('/ujian', [SiswaController::class, 'ujian'])->name('siswa.ujian');
+        Route::get('/ujian-selesai', [SiswaController::class, 'ujianSelesai'])->name('siswa.ujian-selesai');
+    });
+
 
     Route::middleware('admin')->group(function () {
         Route::get('/admin/dashboard', AdminDashboard::class)->name('admin.dashboard');

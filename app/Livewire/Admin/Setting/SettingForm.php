@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\User;
 use App\Models\AdminProfile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,7 +20,7 @@ class SettingForm extends Component
 
     public function mount()
     {
-        $this->user = auth()->user();
+        $this->user = Auth::user();
         $this->username = $this->user->username;
         $this->email = $this->user->email;
         $this->nama_lengkap = $this->user->adminProfile ? $this->user->adminProfile->nama_lengkap : '';

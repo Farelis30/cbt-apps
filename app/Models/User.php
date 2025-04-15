@@ -23,6 +23,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -56,5 +57,10 @@ class User extends Authenticatable
     public function adminProfile()
     {
         return $this->hasOne(AdminProfile::class);
+    }
+
+    public function guruProfile()
+    {
+        return $this->hasOne(GuruProfile::class);
     }
 }
