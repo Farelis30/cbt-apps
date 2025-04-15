@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('siswa_id')->constrained()->onDelete('cascade');
-            $table->foreignId('ujian_id')->constrained()->onDelete('cascade');
+            $table->foreignId('siswa_id')->constrained('siswa_profiles')->onDelete('cascade');
+            $table->foreignId('ujian_id')->constrained('ujians')->onDelete('cascade');
             $table->integer('nilai');
             $table->date('tanggal_ujian');
             $table->timestamps();

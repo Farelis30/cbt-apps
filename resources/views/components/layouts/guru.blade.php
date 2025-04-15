@@ -44,14 +44,14 @@
             <nav>
                 <ul class="space-y-2">
                     <li class="mb-4">
-                        <a href="{{ route('admin.dashboard') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('guru.dashboard') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-gauge mr-2"></i>
                             <span class="sidebar-text">Dashboard</span>
                         </a>
                         <hr class="border-gray-50 mb-2 opacity-50">
                     </li>
                     <li class="mb-4">
-                        <a href="{{ route('admin.ujian.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('guru.ujian.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-pen mr-2"></i>
                             <span class="sidebar-text">Ujian</span>
                         </a>
@@ -60,7 +60,7 @@
                         <h2 class="text-sm font-bold text-white uppercase sidebar-text">Menu Guru</h2>
                     </li>
                     <li class="mb-4">
-                        <a href="{{ route('admin.setting.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                        <a href="{{ route('guru.setting.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-gear mr-2"></i>
                             <span class="sidebar-text">Profile</span>
                         </a>
@@ -115,7 +115,7 @@
                         </a>
                     </li>
                     <!-- Logout Link -->
-                    <li class="mb-4">
+                    {{-- <li class="mb-4">
                         <form action="{{ route('logout') }}" method="POST" class="cursor-pointer py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             @csrf
                             <button type="submit" class="cursor-pointer w-full text-left flex items-center">
@@ -123,7 +123,7 @@
                                 <span class="sidebar-text">Logout</span>
                             </button>
                         </form>
-                    </li>
+                    </li> --}}
                 </ul>
             </nav>
         </aside>
@@ -162,7 +162,7 @@
             </div>
 
             <!-- Content -->
-            <main class="px-8 flex-1">
+            <main class="px-8 flex-1 relative">
                 <div class="p-6 bg-white shadow-md rounded">
                     {{ $slot }}
                 </div>

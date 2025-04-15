@@ -4,9 +4,11 @@ use App\Http\Controllers\Admin\SiswaProfileController;
 use App\Http\Controllers\Admin\GuruProfileController;
 use App\Http\Controllers\Admin\MapelController;
 use App\Http\Controllers\Admin\SettingProfileController;
+use App\Http\Controllers\Guru\SettingProfileGuruController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\Admin\KelasController;
 use App\Http\Controllers\UjianController;
+use App\Http\Controllers\Guru\UjianController as GuruUjianController;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Guru\Dashboard as GuruDashboard;
 use App\Livewire\Login;
@@ -63,6 +65,16 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('guru')->group(function () {
         Route::get('/guru/dashboard', GuruDashboard::class)->name('guru.dashboard');
+
+        Route::get('/guru/setting', [SettingProfileGuruController::class, 'index'])->name('guru.setting.index');
+
+        Route::get('/guru/ujian', [GuruUjianController::class, 'index'])->name('guru.ujian.index');
+        Route::get('/guru/ujian/create', [GuruUjianController::class, 'create'])->name('guru.ujian.create');
+        Route::get('/guru/ujian/{id}/edit', [GuruUjianController::class, 'edit'])->name('guru.ujian.edit');
+
+        Route::get('/guru/ujian/{id}/soal/', [GuruUjianController::class, 'soal'])->name('guru.ujian.soal');
+        Route::get('/guru/ujian/{id}/soal/create', [GuruUjianController::class, 'createSoal'])->name('guru.ujian.soal.create');
+        Route::get('/guru/ujian/{ujianId}/soal/{soalId}/edit', [GuruUjianController::class, 'editSoal'])->name('guru.ujian.soal.edit');
     });
 
 });

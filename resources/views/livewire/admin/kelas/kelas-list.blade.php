@@ -72,9 +72,9 @@
         });
     }
 
-    function confirmDelete(bannerId) {
+    function confirmDelete(kelasId) {
         Swal.fire({
-            title: 'Anda yakin ingin menghapus banner ini?',
+            title: 'Anda yakin ingin menghapus kelas ini?',
             text: "Data yang dihapus tidak dapat dikembalikan!",
             icon: 'warning',
             showCancelButton: true,
@@ -84,7 +84,7 @@
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
-                @this.call('delete', bannerId);
+                @this.call('delete', kelasId);
                 Swal.fire(
                     'Terhapus!',
                     'Banner telah dihapus.',
