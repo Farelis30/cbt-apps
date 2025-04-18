@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | @yield('title')</title>
+    <title>Guru | @yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     <script>
@@ -54,6 +54,12 @@
                         <a href="{{ route('guru.ujian.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
                             <i class="fas fa-pen mr-2"></i>
                             <span class="sidebar-text">Ujian</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="{{ route('guru.nilai.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-chart-bar mr-2"></i>
+                            <span class="sidebar-text">Nilai Siswa</span>
                         </a>
                     </li>
                     <li class="mb-2 p-1">

@@ -8,6 +8,7 @@ use App\Http\Controllers\Guru\SettingProfileGuruController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\Admin\KelasController;
 use App\Http\Controllers\Admin\NilaiController;
+use App\Http\Controllers\Guru\GuruNilaiController;
 use App\Http\Controllers\UjianController;
 use App\Http\Controllers\Guru\UjianController as GuruUjianController;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
@@ -85,10 +86,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/guru/ujian', [GuruUjianController::class, 'index'])->name('guru.ujian.index');
         Route::get('/guru/ujian/create', [GuruUjianController::class, 'create'])->name('guru.ujian.create');
         Route::get('/guru/ujian/{id}/edit', [GuruUjianController::class, 'edit'])->name('guru.ujian.edit');
+        Route::post('/guru/soal/import', [GuruUjianController::class, 'import'])->name('guru.soal.import');
+        Route::get('/guru/soal/template', [GuruUjianController::class, 'downloadTemplate'])->name('guru.soal.template');
 
         Route::get('/guru/ujian/{id}/soal/', [GuruUjianController::class, 'soal'])->name('guru.ujian.soal');
         Route::get('/guru/ujian/{id}/soal/create', [GuruUjianController::class, 'createSoal'])->name('guru.ujian.soal.create');
         Route::get('/guru/ujian/{ujianId}/soal/{soalId}/edit', [GuruUjianController::class, 'editSoal'])->name('guru.ujian.soal.edit');
+
+        Route::get('/guru/nilai', [GuruNilaiController::class, 'index'])->name('guru.nilai.index');
+        Route::get('/guru/nilai/{siswaId}/detail', [GuruNilaiController::class, 'detail'])->name('guru.nilai.detail');
+        Route::get('/guru/nilai/{id}/jawaban', [GuruNilaiController::class, 'jawaban'])->name('guru.nilai.jawaban');
     });
 
 });

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\Nilai;
+namespace App\Livewire\Guru\Nilai;
 
 use Livewire\Component;
 use App\Models\Nilai;
@@ -60,7 +60,7 @@ class JawabanSiswaList extends Component
     {
         $soals = Soal::where('ujian_id', $this->nilai->ujian_id)->get();
 
-        return view('livewire.admin.nilai.jawaban-siswa-list', [
+        return view('livewire.guru.nilai.jawaban-siswa-list', [
             'soals' => $soals
         ]);
     }
