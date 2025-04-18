@@ -7,31 +7,7 @@
         </div>
 
         <h1 class="text-3xl font-bold text-gray-800 mb-4">Ujian Selesai!</h1>
-        <p class="text-lg text-gray-600 mb-8">Anda telah menyelesaikan Ujian Matematika Semester 1</p>
-
-        <!-- Ringkasan Hasil -->
-        <div class="bg-blue-50 p-6 rounded-xl mb-8 text-left">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Ringkasan Hasil</h2>
-
-            <div class="space-y-3">
-                <div class="flex justify-between">
-                    <span class="text-gray-600">Total Soal</span>
-                    <span class="font-medium">40 Soal</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-600">Dijawab</span>
-                    <span class="font-medium text-green-600">40 Soal</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-600">Tidak Dijawab</span>
-                    <span class="font-medium text-red-600">0 Soal</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-600">Waktu Digunakan</span>
-                    <span class="font-medium">78 menit 32 detik</span>
-                </div>
-            </div>
-        </div>
+        <p class="text-lg text-gray-600 mb-8">Anda telah menyelesaikan Ujian</p>
 
         <!-- Feedback Message -->
         <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8 text-left">
@@ -61,7 +37,7 @@
 
         <!-- Additional Info -->
         <div class="mt-8 text-sm text-gray-500">
-            <p>Terima kasih telah mengikuti ujian ini. Hasil resmi akan dikirimkan melalui email dan dashboard.</p>
+            <p>Terima kasih telah mengikuti ujian ini. Hasil resmi akan diberikan oleh guru terkait.</p>
         </div>
     </div>
 </x-layouts.app>

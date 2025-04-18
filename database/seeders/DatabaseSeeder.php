@@ -48,10 +48,19 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        User::factory()->create([
-            'username' => 'User',
-            'email' => 'xG7H5@example.com',
+        $siswa = User::factory()->create([
+            'username' => 'Alfarel',
+            'email' => 'farelyudistira01@gmail.com',
             'password' => 'password',
+        ]);
+
+        DB::table('siswa_profiles')->insert([
+            'user_id' => $siswa->id,
+            'nisn' => '20210801037',
+            'nama_lengkap' => 'Muhammad Alfarel Yudistira',
+            'kelas_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         User::factory()->create([
@@ -61,11 +70,20 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        User::factory()->create([
-            'username' => 'Guru',
-            'email' => 'lTt8l@example.com',
+        $guru = User::factory()->create([
+            'username' => 'Mega',
+            'email' => 'mega@gmail.com',
             'password' => 'password',
             'role' => 'guru',
+        ]);
+
+        DB::table('guru_profiles')->insert([
+            'user_id' => $guru->id,
+            'nama_lengkap' => 'Mega Rosalinda Gultom',
+            'kelas_id' => 1,
+            'mata_pelajaran_id' => 5,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

@@ -49,7 +49,7 @@
                                 <a href="{{ route('guru.ujian.edit', $ujian->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs">
                                     Edit
                                 </a>
-                                <button onclick="confirmDelete({{ $ujian->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs">Hapus</button>
+                                <button onclick="confirmDelete({{ $ujian->id }})" class="cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs">Hapus</button>
                             </div>
                         </td>
                     </tr>

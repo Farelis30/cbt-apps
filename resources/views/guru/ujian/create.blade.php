@@ -11,6 +11,6 @@
         </div>
     </x-slot>
 
-    {{-- @livewire('guru.ujian.create-ujian') --}}
+    @livewire('guru.ujian.create-ujian')
 
 </x-layouts.guru>

@@ -72,7 +72,7 @@
                 </nav>
             </header>
         @endif
-        <main>
+        <main class="flex-1">
             @if (Auth::check() && Auth::user()->role == 'siswa' && !request()->is('ujian'))
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
                     {{ $slot }}

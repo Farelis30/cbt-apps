@@ -3,8 +3,15 @@
     <div class="w-full max-w-4xl md:border border-gray-100 bg-white md:rounded-xl md:shadow-xl overflow-hidden flex flex-col md:flex-row">
         <!-- Form Section -->
         <div class="w-full md:w-1/2 p-8 md:p-12">
-            <h1 class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">Login Untuk Mulai</h1>
-            <p class="text-gray-500 text-sm md:text-base mb-8">Silakan masuk dengan akun Anda untuk mengikuti ujian</p>
+            <div class="flex items-center justify-center md:hidden mb-4">
+                <img
+                    src="{{ asset('logo.png') }}"
+                    alt="Ilustrasi Sekolah"
+                    class="w-30 h-30 max-w-xs md:hidden mb-2"
+                >
+            </div>
+            <h1 class="text-2xl md:text-3xl font-bold text-blue-600 mb-2 text-center md:text-left">Login Untuk Mulai</h1>
+            <p class="text-gray-500 text-sm md:text-base mb-8 text-center md:text-left">Silakan masuk dengan akun Anda</p>
 
             <form wire:submit.prevent="login" class="space-y-6">
                 <div>
@@ -54,7 +61,7 @@
                 </button>
 
                 <p class="text-center text-gray-500 text-sm">
-                    Akun bermasalah? silakan hubungi pengawas terkait
+                    Akun bermasalah? silakan hubungi admin/pengawas terkait
                 </p>
             </form>
         </div>
@@ -64,10 +71,17 @@
             <img
                 src="https://img.freepik.com/free-vector/hand-drawn-childish-school-background_23-2149464866.jpg"
                 alt="Ilustrasi Sekolah"
-                class="w-full max-w-xs"
+                class="w-full max-w-xs rounded-md"
             >
             <h2 class="text-xl font-bold text-blue-900 mt-6">Ujian Online SD</h2>
             <p class="text-gray-600 text-center mt-2">Belajar dan ujian jadi lebih menyenangkan</p>
+            {{-- tanda back dengan icon --}}
+            <div class="flex items-center mt-4">
+                <a href="/" class="hover:text-blue-600 flex items-center">
+                    <i class="fas fa-arrow-left"></i>
+                    <span class="ml-2">Kembali</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>

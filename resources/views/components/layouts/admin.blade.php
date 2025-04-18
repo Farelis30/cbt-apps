@@ -83,6 +83,12 @@
                             <span class="sidebar-text">Ujian</span>
                         </a>
                     </li>
+                    <li class="mb-4">
+                        <a href="{{ route('admin.nilai.index') }}" wire:navigate class="py-2 px-3 rounded-md text-white hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200 mb-2">
+                            <i class="fas fa-chart-bar mr-2"></i>
+                            <span class="sidebar-text">Nilai Siswa</span>
+                        </a>
+                    </li>
                     <li class="mb-2 p-1">
                         <h2 class="text-sm font-bold text-white uppercase sidebar-text">Admin Menu</h2>
                     </li>
